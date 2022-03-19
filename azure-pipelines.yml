@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'SVNVM-ip'
 
 variables:
   solution: '**/*.sln'
