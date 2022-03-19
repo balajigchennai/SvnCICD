@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'SVNVM-ip'
+  name: 'local'
 
 variables:
   solution: '**/*.sln'
