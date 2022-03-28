@@ -29,6 +29,7 @@ namespace ConsoleApp1
             catch (Exception ex)
             {
                 Console.WriteLine("Error occured while invoking data  from Azure DB: " + ex.InnerException.ToString());
+                Console.ReadLine();
                
             }
 
