@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: 'local123'
+  name: 'vm'
 
 variables:
   solution: '**/*.sln'
