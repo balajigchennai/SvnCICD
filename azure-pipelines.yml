@@ -19,7 +19,7 @@ variables:
   DatabaseName: 'SqlAzure'
   AdminUser: 'svnvmuser'
   AdminPassword: 'Sqlpassword@123'
-  SQLFile: 'C:\agents\_work\1\s\Sql\dml.sql'
+  SQLFile: 'C:\agents\_work\1\s\Sql\ddl.sql,C:\agents\_work\1\s\Sql\dml.sql,C:\agents\_work\1\s\Sql\getallapps.sql'
 
 steps:
 - task: NuGetToolInstaller@1
