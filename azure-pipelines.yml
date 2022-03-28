@@ -15,6 +15,7 @@ variables:
   buildConfiguration: 'Release'
   AzureSubscription: 'Free Trial (3525a3e1-2c44-492b-bcd4-4c624adf7c35)'
   ServerName: 'sqlserverazurepoc.database.windows.net'
+  ResourceGroupName: 'SVNAZURE'
   DatabaseName: 'SqlAzure'
   AdminUser: 'svnvmuser'
   AdminPassword: 'Sqlpassword@123'
