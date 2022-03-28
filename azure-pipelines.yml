@@ -13,6 +13,12 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  AzureSubscription: 'Free Trial (3525a3e1-2c44-492b-bcd4-4c624adf7c35)'
+  ServerName: 'sqlserverazurepoc.database.windows.net'
+  DatabaseName: 'SqlAzure'
+  AdminUser: 'svnvmuser'
+  AdminPassword: 'Sqlpassword@123'
+  SQLFile: '**/*.sql'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -43,16 +49,24 @@ steps:
     ArtifactName: 'application'
     publishLocation: 'Container'
 
-- task: SqlAzureDacpacDeployment@1
+
+- task: AzurePowerShell@2
   inputs:
-    azureSubscription: 'Free Trial (3525a3e1-2c44-492b-bcd4-4c624adf7c35)'
-    AuthenticationType: 'server'
-    ServerName: 'sqlserverazurepoc.database.windows.net'
-    DatabaseName: 'SqlAzure'
-    SqlUsername: 'svnvmuser'
-    SqlPassword: 'Sqlpassword@123'
-    deployType: 'SqlTask'
-    SqlFile: '$(System.DefaultWorkingDirectory)/_balajigchennai.SvnCICD/application/Sql/ddl.sql'
-    IpDetectionMethod: 'AutoDetect'
+    azureSubscription: '$(AzureSubscription)'
+    ScriptPath: '$(Build.SourcesDirectory)\scripts\SetAzureFirewallRule.ps1'
+    ScriptArguments: '-ServerName $(ServerName) -ResourceGroupName $(ResourceGroupName)'
+    azurePowerShellVersion: LatestVersion
 
+- task: CmdLine@1
+  displayName: Run Sqlcmd
+  inputs:
+    filename: Sqlcmd
+    arguments: '-S $(ServerName) -U $(AdminUser) -P $(AdminPassword) -d $(DatabaseName) -i $(SQLFile)'
 
+- task: AzurePowerShell@2
+
+  inputs:
+    azureSubscription: '$(AzureSubscription)'
+    ScriptPath: '$(Build.SourcesDirectory)\scripts\RemoveAzureFirewallRule.ps1'
+    ScriptArguments: '$(ServerName)'
+    azurePowerShellVersion: LatestVersion
