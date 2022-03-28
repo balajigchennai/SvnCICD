@@ -52,29 +52,7 @@ steps:
     SqlUsername: 'svnvmuser'
     SqlPassword: 'Sqlpassword@123'
     deployType: 'SqlTask'
-    SqlFile: '**/ddl.sql'
-    IpDetectionMethod: 'AutoDetect'
+    SqlFile: '$(System.DefaultWorkingDirectory)/_balajigchennai.SvnCICD/application/Sql/ddl.sql'
+    IpDetectionMethod: 'AutoDetect''
 
-- task: SqlAzureDacpacDeployment@1
-  inputs:
-    azureSubscription: 'Free Trial (3525a3e1-2c44-492b-bcd4-4c624adf7c35)'
-    AuthenticationType: 'server'
-    ServerName: 'sqlserverazurepoc.database.windows.net'
-    DatabaseName: 'SqlAzure'
-    SqlUsername: 'svnvmuser'
-    SqlPassword: 'Sqlpassword@123'
-    deployType: 'SqlTask'
-    SqlFile: '**/dml.sql'
-    IpDetectionMethod: 'AutoDetect'
 
-- task: SqlAzureDacpacDeployment@1
-  inputs:
-    azureSubscription: 'Free Trial (3525a3e1-2c44-492b-bcd4-4c624adf7c35)'
-    AuthenticationType: 'server'
-    ServerName: 'sqlserverazurepoc.database.windows.net'
-    DatabaseName: 'SqlAzure'
-    SqlUsername: 'svnvmuser'
-    SqlPassword: 'Sqlpassword@123'
-    deployType: 'SqlTask'
-    SqlFile: '**/getallapps/sql'
-    IpDetectionMethod: 'AutoDetect'
