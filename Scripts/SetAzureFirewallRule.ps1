@@ -17,11 +17,11 @@ function Update-AzureSQLServerFirewallRule{
   Set-AzureSqlDatabaseServerFirewallRule -StartIPAddress $agentIp -EndIPAddress $agentIp -FirewallRuleName $AzureFirewallName -ServerName $ServerName -ResourceGroupName $ResourceGroupName
 }
 
-If ((Get-AzureSqlDatabaseServerFirewallRule -ServerName $ServerName -FirewallRuleName $AzureFirewallName -ResourceGroupName $ResourceGroupName -ErrorAction SilentlyContinue) -eq $null)
-{
+#If ((Get-AzureSqlDatabaseServerFirewallRule -ServerName $ServerName -FirewallRuleName $AzureFirewallName -ResourceGroupName $ResourceGroupName -ErrorAction SilentlyContinue) -eq $null)
+#{
   New-AzureSQLServerFirewallRule
-}
-else
-{
-  Update-AzureSQLServerFirewallRule
-}
+#}
+#else
+#{
+#  Update-AzureSQLServerFirewallRule
+#}
