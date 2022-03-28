@@ -57,7 +57,7 @@ steps:
     azureSubscription: '$(AzureSubscription)'
     ScriptPath: '$(Build.SourcesDirectory)\scripts\SetAzureFirewallRule.ps1'
     ScriptArguments: '-ServerName $(ServerName) -ResourceGroupName $(ResourceGroupName)'
-    azurePowerShellVersion: 'OtherVersion'
+    azurePowerShellVersion: '2.7.4'
 
 - task: CmdLine@1
   displayName: Run Sqlcmd
@@ -71,4 +71,4 @@ steps:
     azureSubscription: '$(AzureSubscription)'
     ScriptPath: '$(Build.SourcesDirectory)\scripts\RemoveAzureFirewallRule.ps1'
     ScriptArguments: '$(ServerName)'
-    azurePowerShellVersion: 'OtherVersion'
+    azurePowerShellVersion: '2.7.4'
