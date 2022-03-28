@@ -11,7 +11,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Azure Cloud");
+            Console.WriteLine("Welcome to Azure Cloud1");
             try
             {
                 string spname = System.Configuration.ConfigurationManager.AppSettings["StoreProcedure"].ToString();
