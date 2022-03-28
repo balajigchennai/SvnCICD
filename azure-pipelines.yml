@@ -52,13 +52,13 @@ steps:
 
 
 
-- task: AzurePowerShell@2
-  displayName: Azure PowerShell script
-  inputs:
-    azureSubscription: '$(AzureSubscription)'
-    ScriptPath: '$(Build.SourcesDirectory)\scripts\SetAzureFirewallRule.ps1'
-    ScriptArguments: '-ServerName $(ServerName) -ResourceGroupName $(ResourceGroupName)'
-    azurePowerShellVersion: 'LatestVersion'
+#- task: AzurePowerShell@2
+#  displayName: Azure PowerShell script
+#  inputs:
+#    azureSubscription: '$(AzureSubscription)'
+#    ScriptPath: '$(Build.SourcesDirectory)\scripts\SetAzureFirewallRule.ps1'
+#    ScriptArguments: '-ServerName $(ServerName) -ResourceGroupName $(ResourceGroupName)'
+#    azurePowerShellVersion: 'LatestVersion'
 
 - task: CmdLine@1
   displayName: Run Sqlcmd
@@ -66,10 +66,10 @@ steps:
     filename: Sqlcmd
     arguments: '-S $(ServerName) -U $(AdminUser) -P $(AdminPassword) -d $(DatabaseName) -i $(SQLFile)'
 
-- task: AzurePowerShell@2
-  displayName: Azure PowerShell script
-  inputs:
-    azureSubscription: '$(AzureSubscription)'
-    ScriptPath: '$(Build.SourcesDirectory)\scripts\RemoveAzureFirewallRule.ps1'
-    ScriptArguments: '$(ServerName)'
-    azurePowerShellVersion: '6.13.2'
+#- task: AzurePowerShell@2
+#  displayName: Azure PowerShell script
+#  inputs:
+#    azureSubscription: '$(AzureSubscription)'
+#    ScriptPath: '$(Build.SourcesDirectory)\scripts\RemoveAzureFirewallRule.ps1'
+#    ScriptArguments: '$(ServerName)'
+#    azurePowerShellVersion: '6.13.2'
