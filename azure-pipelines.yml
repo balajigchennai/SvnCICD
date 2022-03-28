@@ -34,7 +34,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: '**/*.exe'
+    Contents: '**/*.*'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
