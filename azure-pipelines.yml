@@ -55,7 +55,7 @@ steps:
     SqlFile: '**/ddl.sql'
     IpDetectionMethod: 'AutoDetect'
 
-- task: SqlAzureDacpacDeployment@2
+- task: SqlAzureDacpacDeployment@1
   inputs:
     azureSubscription: 'Free Trial (3525a3e1-2c44-492b-bcd4-4c624adf7c35)'
     AuthenticationType: 'server'
@@ -67,7 +67,7 @@ steps:
     SqlFile: '**/dml.sql'
     IpDetectionMethod: 'AutoDetect'
 
-- task: SqlAzureDacpacDeployment@3
+- task: SqlAzureDacpacDeployment@1
   inputs:
     azureSubscription: 'Free Trial (3525a3e1-2c44-492b-bcd4-4c624adf7c35)'
     AuthenticationType: 'server'
