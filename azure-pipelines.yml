@@ -58,7 +58,7 @@ steps:
     azureSubscription: '$(AzureSubscription)'
     ScriptPath: '$(Build.SourcesDirectory)\scripts\SetAzureFirewallRule.ps1'
     ScriptArguments: '-ServerName $(ServerName) -ResourceGroupName $(ResourceGroupName)'
-    azurePowerShellVersion: '6.13.2'
+    azurePowerShellVersion: 'LatestVersion'
 
 - task: CmdLine@1
   displayName: Run Sqlcmd
