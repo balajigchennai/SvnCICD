@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: 'local123'
+  name: 'Azure Pipelines'
 
 variables:
   solution: '**/*.sln'
