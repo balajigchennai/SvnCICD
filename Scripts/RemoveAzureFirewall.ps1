@@ -2,7 +2,13 @@
 param
 (
   [String] [Parameter(Mandatory = $true)] $ServerName,
-  [String] [Parameter(Mandatory = $true)] $ResourceGroup,
+  [String] [Parameter(Mandatory = $true)] $ResourceGroupName,
   [String] $AzureFirewallName = "AzureWebAppFirewall"
 )
-Remove-AzSqlServerFirewallRule -ServerName $ServerName -FirewallRuleName $AzureFirewallName -ResourceGroupName $ResourceGroup
+
+$ErrorActionPreference = 'Stop'
+
+If ((Get-AzureSqlDatabaseServerFirewallRule -ServerName $ServerName -FirewallRuleName $AzureFirewallName -ResourceGroupName $ResourceGroupName -ErrorAction SilentlyContinue))
+{
+  Remove-AzureSqlDatabaseServerFirewallRule -FirewallRuleName $AzureFirewallName -ServerName $ServerName -ResourceGroupName $ResourceGroupName
+}
