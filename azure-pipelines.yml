@@ -53,6 +53,6 @@ steps:
     SqlPassword: 'Sqlpassword@123'
     deployType: 'SqlTask'
     SqlFile: '$(System.DefaultWorkingDirectory)/_balajigchennai.SvnCICD/application/Sql/ddl.sql'
-    IpDetectionMethod: 'AutoDetect''
+    IpDetectionMethod: 'AutoDetect'
 
 
