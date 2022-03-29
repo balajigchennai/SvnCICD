@@ -56,7 +56,7 @@ steps:
 #  displayName: Azure PowerShell script
 #  inputs:
 #    azureSubscription: '$(AzureSubscription)'
-#    ScriptPath: '$(Build.SourcesDirectory)\scripts\SetAzureFirewallRule.ps1'
+#    ScriptPath: '$(Build.SourcesDirectory)\scripts\Setpoc1.ps1'
 #    ScriptArguments: '-ServerName $(ServerName) -ResourceGroupName $(ResourceGroupName)'
 #    azurePowerShellVersion: 'LatestVersion'
 
@@ -70,6 +70,6 @@ steps:
 #  displayName: Azure PowerShell script
 #  inputs:
 #    azureSubscription: '$(AzureSubscription)'
-#    ScriptPath: '$(Build.SourcesDirectory)\scripts\RemoveAzureFirewallRule.ps1'
+#    ScriptPath: '$(Build.SourcesDirectory)\scripts\setpoc2.ps1'
 #    ScriptArguments: '$(ServerName)'
 #    azurePowerShellVersion: '6.13.2'
